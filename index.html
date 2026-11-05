@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Diri Saya</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffe4ec, #fff5f8);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 15px;
+        }
+
+        .container {
+            background: white;
+            width: 100%;
+            max-width: 430px;
+            padding: 35px 25px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(190, 100, 130, 0.15);
+        }
+
+        h2 {
+            color: #c45b82;
+            margin-bottom: 25px;
+        }
+
+        .foto {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #f4b6ca;
+            margin-bottom: 15px;
+            cursor: zoom-in;
+        }
+
+        .foto-modal {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            max-width: none;
+            height: 100%;
+            max-height: none;
+            margin: 0;
+            padding: 24px;
+            border: 0;
+            background: rgba(25, 16, 20, 0.88);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .foto-modal[open] {
+            display: flex;
+        }
+
+        .foto-modal::backdrop {
+            background: transparent;
+        }
+
+        .foto-besar {
+            display: block;
+            max-width: min(90vw, 700px);
+            max-height: 85vh;
+            border-radius: 12px;
+            object-fit: contain;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        .tutup-foto {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            border: 0;
+            border-radius: 50%;
+            background: white;
+            color: #5b3543;
+            font-size: 30px;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .nama {
+            color: #bd527a;
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .deskripsi {
+            color: #999;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .data {
+            text-align: left;
+            background: #fff3f7;
+            padding: 13px 15px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .data strong {
+            color: #bd527a;
+        }
+
+        .sambutan {
+            margin-top: 20px;
+            padding: 16px;
+            border-left: 4px solid #e89ab5;
+            border-radius: 10px;
+            background: #fff8fa;
+            color: #6f5961;
+            font-size: 14px;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .footer {
+            color: #c27b96;
+            font-size: 12px;
+            margin-top: 22px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>♡ Data Diri Saya ♡</h2>
+
+        <img src="foto/foto.jpeg" class="foto" alt="Foto Profil">
+
+        <dialog class="foto-modal" aria-label="Foto profil ukuran besar">
+            <button class="tutup-foto" type="button" aria-label="Tutup foto">&times;</button>
+            <img src="foto/foto.jpeg" class="foto-besar" alt="Foto Profil ukuran besar">
+        </dialog>
+
+        <h1 class="nama">Restu Wahyu Mulyani</h1>
+
+        <p class="deskripsi">Haloo Semuanyaa!!</p>
+
+        <div class="data">
+            <strong>Kelas:</strong> X BD 2
+        </div>
+
+        <div class="data">
+            <strong>Jurusan:</strong> Bisnis Digital
+        </div>
+
+        <div class="data">
+            <strong>Alamat:</strong> Wonorejo
+        </div>
+
+        <div class="data">
+            <strong>Jenis Kelamin:</strong> Perempuan
+        </div>
+
+        <div class="data">
+            <strong>Hobi:</strong> Healing
+        </div>
+
+        <div class="data">
+            <strong>Cita-cita:</strong> Menjadi Orang Sukses
+        </div>
+
+        <p class="sambutan">Halo semua! Perkenalkan, nama saya Restu Wahyu Mulyani. Saya adalah siswi kelas X BD 2 di jurusan Bisnis Digital. Saya tinggal di Wonorejo dan memiliki hobi healing. Cita-cita saya adalah menjadi orang sukses di masa depan. Terima kasih telah mengunjungi halaman data diri saya!
+        </p>
+
+        <p class="footer">♡ Makasihh Semuanyaa!! ♡</p>
+
+    </div>
+
+    <script>
+        const fotoProfil = document.querySelector(".foto");
+        const modalFoto = document.querySelector(".foto-modal");
+        const tombolTutupFoto = document.querySelector(".tutup-foto");
+
+        fotoProfil.addEventListener("click", () => modalFoto.showModal());
+        tombolTutupFoto.addEventListener("click", () => modalFoto.close());
+        modalFoto.addEventListener("click", (event) => {
+            if (event.target === modalFoto) modalFoto.close();
+        });
+    </script>
+
+</body>
+</html>
